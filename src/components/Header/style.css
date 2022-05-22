@@ -1,0 +1,9 @@
+header {
+    background-color: #6366F1;
+}
+
+.menu__link:hover {
+    opacity: 1 !important;
+    text-decoration: underline !important;
+    transition: opacity 0.3s;
+}
