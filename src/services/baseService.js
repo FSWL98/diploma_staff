@@ -5,7 +5,8 @@ export default class BaseService {
 
     if (status < 200 || status >= 300) {
       if (checkUnauthorized && status === 401) {
-        localStorage.removeItem(tokenName);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         window.location.reload();
       } else {
         return { error: status, message: parsedResponse.message };
