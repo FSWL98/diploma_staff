@@ -8,7 +8,7 @@ const MarkItem = ({ criteria, mark, solutionId, onChange }) => {
   const [score, setScore] = useState(0);
   const ref = useRef(null);
   const handleDebounce = (value, mark, solution_id, criteria_id) => {
-    if (mark.mark_id) {
+    if (mark?.mark_id) {
       SolutionsService.saveMark({
         ...mark,
         score: parseInt(value, 10)
@@ -26,7 +26,8 @@ const MarkItem = ({ criteria, mark, solutionId, onChange }) => {
       SolutionsService.createMark({
         solution_id,
         criteria_id,
-        score: parseInt(value, 10)
+        score: parseInt(value, 10),
+        comment: ''
       })
         .then((res) => {
           if (res.error) {
